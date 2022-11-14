@@ -1,0 +1,5 @@
+ashwin@ROTHARDO:~$ rosrun turtlesim turtlesim_node
+[ INFO] [1668458326.600598245]: Starting turtlesim with node name /turtlesim
+[ INFO] [1668458326.606267730]: Spawning turtle [turtle1] at x=[5.544445], y=[5.544445], theta=[0.000000]
+
+

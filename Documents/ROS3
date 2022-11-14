@@ -1,0 +1,20 @@
+ashwin@ROTHARDO:~$ rqt_graph
+^Cashwin@ROTHARDO:~$ rqt_graph
+^Cashwin@ROTHARDO:~rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+ashwin@ROTHARDO:~$ rostopic info /turtle1/cmd_vel
+Type: geometry_msgs/Twist
+
+Publishers: 
+ * /teleop_turtle (http://ROTHARDO:45411/)
+
+Subscribers: 
+ * /turtlesim (http://ROTHARDO:37501/)
+
+
+ashwin@ROTHARDO:~$ 
+

@@ -1,0 +1,204 @@
+ashwin@ROTHARDO:~$ rosnode
+rosnode is a command-line tool for printing information about ROS Nodes.
+
+Commands:
+	rosnode ping	test connectivity to node
+	rosnode list	list active nodes
+	rosnode info	print information about node
+	rosnode machine	list nodes running on a particular machine or list machines
+	rosnode kill	kill a running node
+	rosnode cleanup	purge registration information of unreachable nodes
+
+Type rosnode <command> -h for more detailed usage, e.g. 'rosnode ping -h'
+
+ashwin@ROTHARDO:~$ rosnode info/
+rosnode is a command-line tool for printing information about ROS Nodes.
+
+Commands:
+	rosnode ping	test connectivity to node
+	rosnode list	list active nodes
+	rosnode info	print information about node
+	rosnode machine	list nodes running on a particular machine or list machines
+	rosnode kill	kill a running node
+	rosnode cleanup	purge registration information of unreachable nodes
+
+Type rosnode <command> -h for more detailed usage, e.g. 'rosnode ping -h'
+
+ashwin@ROTHARDO:~$ rosnode info/
+rosnode is a command-line tool for printing information about ROS Nodes.
+
+Commands:
+	rosnode ping	test connectivity to node
+	rosnode list	list active nodes
+	rosnode info	print information about node
+	rosnode machine	list nodes running on a particular machine or list machines
+	rosnode kill	kill a running node
+	rosnode cleanup	purge registration information of unreachable nodes
+
+Type rosnode <command> -h for more detailed usage, e.g. 'rosnode ping -h'
+
+ashwin@ROTHARDO:~$ rosnode 
+cleanup  info     kill     list     machine  ping     
+ashwin@ROTHARDO:~$ rosnode info
+Usage: rosnode info [options] node1 [node2...]
+
+rosnode: error: You must specify at least one node name
+ashwin@ROTHARDO:~$ rosnode info/turtlesim
+rosnode is a command-line tool for printing information about ROS Nodes.
+
+Commands:
+	rosnode ping	test connectivity to node
+	rosnode list	list active nodes
+	rosnode info	print information about node
+	rosnode machine	list nodes running on a particular machine or list machines
+	rosnode kill	kill a running node
+	rosnode cleanup	purge registration information of unreachable nodes
+
+Type rosnode <command> -h for more detailed usage, e.g. 'rosnode ping -h'
+
+ashwin@ROTHARDO:~$ rosnode info /turtlesim
+--------------------------------------------------------------------------------
+Node [/turtlesim]
+Publications: 
+ * /rosout [rosgraph_msgs/Log]
+ * /turtle1/color_sensor [turtlesim/Color]
+ * /turtle1/pose [turtlesim/Pose]
+
+Subscriptions: 
+ * /turtle1/cmd_vel [unknown type]
+
+Services: 
+ * /clear
+ * /kill
+ * /reset
+ * /spawn
+ * /turtle1/set_pen
+ * /turtle1/teleport_absolute
+ * /turtle1/teleport_relative
+ * /turtlesim/get_loggers
+ * /turtlesim/set_logger_level
+
+
+contacting node http://ROTHARDO:37501/ ...
+Pid: 8873
+Connections:
+ * topic: /rosout
+    * to: /rosout
+    * direction: outbound (52765 - 127.0.0.1:37444) [30]
+    * transport: TCPROS
+
+ashwin@ROTHARDO:~$ rostopic
+rostopic is a command-line tool for printing information about ROS Topics.
+
+Commands:
+	rostopic bw	display bandwidth used by topic
+	rostopic delay	display delay of topic from timestamp in header
+	rostopic echo	print messages to screen
+	rostopic find	find topics by type
+	rostopic hz	display publishing rate of topic    
+	rostopic info	print information about active topic
+	rostopic list	list active topics
+	rostopic pub	publish data to topic
+	rostopic type	print topic or field type
+
+Type rostopic <command> -h for more detailed usage, e.g. 'rostopic echo -h'
+
+ashwin@ROTHARDO:~$ rostopic 
+bw    echo  find  hz    info  list  pub   type  
+ashwin@ROTHARDO:~$ rostopic list
+/rosout
+/rosout_agg
+/turtle1/cmd_vel
+/turtle1/color_sensor
+/turtle1/pose
+ashwin@ROTHARDO:~$ rostopic info /cmd_vel
+ERROR: Unknown topic /cmd_vel
+ashwin@ROTHARDO:~$ rostopic info /turtle1/cmd_vel
+Type: geometry_msgs/Twist
+
+Publishers: None
+
+Subscribers: 
+ * /turtlesim (http://ROTHARDO:37501/)
+
+
+ashwin@ROTHARDO:~$ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist "linear:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0" 1
+ERROR: No field name [linear.linear]
+
+Args are: [linear.x linear.y linear.z angular.x angular.y angular.z]
+ashwin@ROTHARDO:~$ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist "linear:
+  x: 1.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0" 
+publishing and latching message. Press ctrl-C to terminate
+^Cashwin@ROTHARDO:~$ rostopic pub /turtle1/cmd_vel geometry_msgs/Twist "linear:
+  x: 0.0
+  y: 0.0
+  z: 0.0
+angular:
+  x: 0.0
+  y: 0.0
+  z: 0.0" ^C
+ashwin@ROTHARDO:~$ rostopic info /turtle1/
+ERROR: Unknown topic /turtle1/
+ashwin@ROTHARDO:~$ rostopic info /
+/rosout                /turtle1/cmd_vel       /turtle1/pose
+/rosout_agg            /turtle1/color_sensor  
+ashwin@ROTHARDO:~$ rostopic info /
+/rosout                /turtle1/cmd_vel       /turtle1/pose
+/rosout_agg            /turtle1/color_sensor  
+ashwin@ROTHARDO:~$ rostopic info /
+/rosout                /turtle1/cmd_vel       /turtle1/pose
+/rosout_agg            /turtle1/color_sensor  
+ashwin@ROTHARDO:~$ rostopic info /
+/rosout                /turtle1/cmd_vel       /turtle1/pose
+/rosout_agg            /turtle1/color_sensor  
+ashwin@ROTHARDO:~$ rostopic info /turtle1/color_sensor
+Type: turtlesim/Color
+
+Publishers: 
+ * /turtlesim (http://ROTHARDO:37501/)
+
+Subscribers: None
+
+
+ashwin@ROTHARDO:~$ rostopic info /turtle1/cmd_vel
+Type: geometry_msgs/Twist
+
+Publishers: None
+
+Subscribers: 
+ * /turtlesim (http://ROTHARDO:37501/)
+
+
+ashwin@ROTHARDO:~$ rosrun turtlesim turtle_teleop_key
+Reading from keyboard
+---------------------------
+Use arrow keys to move the turtle. 'q' to quit.
+ashwin@ROTHARDO:~$ rostopic info /turtle1/cmd_vel
+Type: geometry_msgs/Twist
+
+Publishers: None
+
+Subscribers: 
+ * /turtlesim (http://ROTHARDO:37501/)
+
+
+ashwin@ROTHARDO:~$ rqt_graph
+^Cashwin@ROTHARDO:~$ rrun turtlesim turtle_teleop_key
+Reading from keyboard
+---------------------------
+Use arrow keys to move the turtle. 'q' to quit.
+ashwin@ROTHARDO:~$ ^C
+
